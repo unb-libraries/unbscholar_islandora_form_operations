@@ -1,0 +1,28 @@
+<?php
+/**
+ * @file
+ * Alter Islandora forms : dependent/controlled metadata fields for UNB Scholar.
+ */
+define('UNBSCHOLAR_ISLANDORA_FORM_OPERATIONS_TYPE_FIELD', 'formDataType');
+
+/**
+ * Implements hook_form_alter().
+ */
+function unbscholar_islandora_form_operations_form_alter(&$form, &$form_state, $form_id) {
+  if (($form_id == 'xml_form_builder_datastream_form' || $form_id == 'islandora_ingest_form') && isset($form[UNBSCHOLAR_ISLANDORA_FORM_OPERATIONS_TYPE_FIELD])) {
+
+    define('UNBSCHOLAR_ISLANDORA_FORM_OPERATIONS_ROOT', DRUPAL_ROOT . '/' . drupal_get_path('module', 'unbscholar_islandora_form_operations'));
+    define('UNBSCHOLAR_ISLANDORA_FORM_OPERATIONS_DATA_PATH', UNBSCHOLAR_ISLANDORA_FORM_OPERATIONS_ROOT . '/data');
+
+    $form_alter_operations_include_file = UNBSCHOLAR_ISLANDORA_FORM_OPERATIONS_ROOT . "/includes/{$form[UNBSCHOLAR_ISLANDORA_FORM_OPERATIONS_TYPE_FIELD]['#value']}.inc";
+    if (file_exists($form_alter_operations_include_file)) {
+      include_once "$form_alter_operations_include_file";
+      $form_alter_operations_function = "_unbscholar_islandora_form_operations_{$form[UNBSCHOLAR_ISLANDORA_FORM_OPERATIONS_TYPE_FIELD]['#value']}_form_alter";
+      if (function_exists($form_alter_operations_function)) {
+        include_once UNBSCHOLAR_ISLANDORA_FORM_OPERATIONS_ROOT . '/includes/common.inc';
+        $form_alter_operations_function($form, $form_state);
+      }
+    }
+
+  }
+}

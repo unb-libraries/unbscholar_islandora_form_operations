@@ -1,0 +1,4 @@
+name = UNB Scholar Islandora Form Operations
+description = Controlled vocabularies, dependent fields, form alterations, and other items for UNB Scholar forms.
+package = Islandora
+core = 7.x
