@@ -1,0 +1,20 @@
+Article
+Bibliography
+Blog Entry
+Book
+Book Part
+Case Study
+Conference Proceeding
+Essay
+Honours Thesis
+Interview
+Nursing Synthesis Paper
+Other
+Presentation
+Report
+Review
+Senior Report
+Technical Report
+Thesis / Dissertation
+Video
+Working Paper
