@@ -1,4 +1,4 @@
-Department of History & Politics
-Department of Humanities & Languages
-Department of Psychology
-Department of Social Sciences
+History & Politics
+Humanities & Languages
+Psychology
+Social Sciences
