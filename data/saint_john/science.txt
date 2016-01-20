@@ -1,6 +1,6 @@
-Biology (SJ)
-Chemistry (SJ)
-Computer Science (SJ)
-Engineering (SJ)
-Mathematical Sciences (SJ)
-Nursing & Health Science (SJ)
+Biology
+Chemistry
+Computer Science
+Engineering
+Mathematical Sciences
+Nursing & Health Science
