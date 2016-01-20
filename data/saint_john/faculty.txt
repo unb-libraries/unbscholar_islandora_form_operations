@@ -1,3 +1,3 @@
-Arts (SJ)
-Business (SJ)
-Science, Applied Science & Engineering (SJ)
+Arts
+Business
+Science, Applied Science & Engineering
