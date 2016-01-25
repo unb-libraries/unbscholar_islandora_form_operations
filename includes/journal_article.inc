@@ -37,11 +37,11 @@ function _unbscholar_islandora_form_operations_journal_article_form_alter(&$form
   // Faculty name.
   $campus = isset($form_state['values']['principalAuthorInformation']['UNBFacetInfo']['Institution_Name']) ? trim($form_state['values']['principalAuthorInformation']['UNBFacetInfo']['Institution_Name']) : $form['principalAuthorInformation']['UNBFacetInfo']['Institution_Name']['#default_value'];
   switch ($campus) {
-    case 'University of New Brunswick (Fredericton)':
+    case 'Fredericton':
       $campus_slug = 'fredericton';
       break;
 
-    case 'University of New Brunswick (Saint John)':
+    case 'Saint John':
       $campus_slug = 'saint_john';
       break;
   }
