@@ -87,6 +87,10 @@ function _unbscholar_islandora_form_operations_journal_article_form_alter(&$form
   }
   $form['principalAuthorInformation']['UNBFacetInfo']['Department_Name']['#options'] = _unbscholar_islandora_form_operations_get_options_from_file("$campus_slug/$department_file.txt");
 
+  // Discipline name.
+  $form['principalAuthorInformation']['UNBFacetInfo']['Discipline_Name']['#options'] = _unbscholar_islandora_form_operations_get_options_from_file('discipline.txt');
+  $form['principalAuthorInformation']['UNBFacetInfo']['Discipline_Name']['#validated'] = TRUE;
+
   // Research group name.
   $form['principalAuthorInformation']['UNBFacetInfo']['Group_Name']['#options'] = _unbscholar_islandora_form_operations_get_options_from_file('centres.txt');
   $form['principalAuthorInformation']['UNBFacetInfo']['Group_Name']['#validated'] = TRUE;
