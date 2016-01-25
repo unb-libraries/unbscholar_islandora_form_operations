@@ -28,6 +28,7 @@ function _unbscholar_islandora_form_operations_journal_article_form_alter(&$form
   // Institution name.
   $form['principalAuthorInformation']['UNBFacetInfo']['Institution_Name']['#options'] = _unbscholar_islandora_form_operations_get_options_from_file('campus.txt');
   $form['principalAuthorInformation']['UNBFacetInfo']['Institution_Name']['#validated'] = TRUE;
+  $form['principalAuthorInformation']['UNBFacetInfo']['Institution_Name']['#empty_value'] = '';
   $form['principalAuthorInformation']['UNBFacetInfo']['Institution_Name']['#ajax'] = array(
     'wrapper' => 'author-details-wrapper',
     'callback' => '_unbscholar_islandora_form_operations_principalAuthorInformation_callback',
