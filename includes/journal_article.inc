@@ -31,7 +31,7 @@ function _unbscholar_islandora_form_operations_journal_article_form_alter(&$form
   $form['principalAuthorInformation']['UNBFacetInfo']['Institution_Name']['#empty_value'] = '';
   $form['principalAuthorInformation']['UNBFacetInfo']['Institution_Name']['#ajax'] = array(
     'wrapper' => 'author-details-wrapper',
-    'callback' => '_unbscholar_islandora_form_operations_principalAuthorInformation_callback',
+    'callback' => '_unbscholar_islandora_form_operations_principal_author_information_callback',
     'method' => 'replace',
   );
 
@@ -51,7 +51,7 @@ function _unbscholar_islandora_form_operations_journal_article_form_alter(&$form
   $form['principalAuthorInformation']['UNBFacetInfo']['Faculty_Name']['#empty_value'] = '';
   $form['principalAuthorInformation']['UNBFacetInfo']['Faculty_Name']['#ajax'] = array(
     'wrapper' => 'author-details-wrapper',
-    'callback' => '_unbscholar_islandora_form_operations_principalAuthorInformation_callback',
+    'callback' => '_unbscholar_islandora_form_operations_principal_author_information_callback',
     'method' => 'replace',
   );
 
@@ -101,6 +101,6 @@ function _unbscholar_islandora_form_operations_journal_article_form_alter(&$form
 /**
  * AJAX form callback : Get 'principalAuthorInformation' form element.
  */
-function _unbscholar_islandora_form_operations_principalAuthorInformation_callback($form, $form_state) {
+function _unbscholar_islandora_form_operations_principal_author_information_callback($form, $form_state) {
   return $form['principalAuthorInformation'];
 }
