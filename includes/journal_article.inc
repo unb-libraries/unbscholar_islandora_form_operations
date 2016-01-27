@@ -37,7 +37,7 @@ function _unbscholar_islandora_form_operations_journal_article_form_alter(&$form
 
   // Faculty name.
   $campus_slug = '';
-  $campus = isset($form_state['values']['principalAuthorInformation']['UNBFacetInfo']['Institution_Name']) ? trim($form_state['values']['principalAuthorInformation']['UNBFacetInfo']['Institution_Name']) : $form['principalAuthorInformation']['UNBFacetInfo']['Institution_Name']['#default_value'];
+  $campus = isset($form_state['values']['principalAuthorInformation']['UNBFacetInfo']['Institution_Name']) ? trim($form_state['values']['principalAuthorInformation']['UNBFacetInfo']['Institution_Name']) : $form['principalAuthorInformation']['UNBFacetInfo']['Institution_Name']['#empty_value'];
   switch ($campus) {
     case 'Fredericton':
       $campus_slug = 'fredericton';
@@ -57,7 +57,7 @@ function _unbscholar_islandora_form_operations_journal_article_form_alter(&$form
   );
 
   // Department name.
-  $faculty = isset($form_state['values']['principalAuthorInformation']['UNBFacetInfo']['Faculty_Name']) ? trim($form_state['values']['principalAuthorInformation']['UNBFacetInfo']['Faculty_Name']) : $form['principalAuthorInformation']['UNBFacetInfo']['Faculty_Name']['#default_value'];
+  $faculty = isset($form_state['values']['principalAuthorInformation']['UNBFacetInfo']['Faculty_Name']) ? trim($form_state['values']['principalAuthorInformation']['UNBFacetInfo']['Faculty_Name']) : $form['principalAuthorInformation']['UNBFacetInfo']['Faculty_Name']['#empty_value'];
   $form['principalAuthorInformation']['UNBFacetInfo']['Department_Name']['#empty_value'] = '';
   $form['principalAuthorInformation']['UNBFacetInfo']['Department_Name']['#validated'] = TRUE;
   if (!in_array(
@@ -87,7 +87,9 @@ function _unbscholar_islandora_form_operations_journal_article_form_alter(&$form
       break;
 
   }
-  $form['principalAuthorInformation']['UNBFacetInfo']['Department_Name']['#options'] = _unbscholar_islandora_form_operations_get_options_from_file("$campus_slug/$department_file.txt");
+  if (isset($department_file)) {
+    $form['principalAuthorInformation']['UNBFacetInfo']['Department_Name']['#options'] = _unbscholar_islandora_form_operations_get_options_from_file("$campus_slug/$department_file.txt");
+  }
 
   // Discipline name.
   $form['principalAuthorInformation']['UNBFacetInfo']['Discipline_Name']['#options'] = _unbscholar_islandora_form_operations_get_options_from_file('discipline.txt');
