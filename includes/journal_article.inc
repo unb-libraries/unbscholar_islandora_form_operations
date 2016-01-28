@@ -71,6 +71,7 @@ function _unbscholar_islandora_form_operations_journal_article_form_alter(&$form
   )) {
     $form['principalAuthorInformation']['UNBFacetInfo']['Department_Name']['#type'] = 'hidden';
     $form['principalAuthorInformation']['UNBFacetInfo']['Department_Name']['#value'] = '';
+    $form['principalAuthorInformation']['UNBFacetInfo']['Department_Name']['#options'] = array();
   }
   switch ($faculty) {
     case 'Arts':
