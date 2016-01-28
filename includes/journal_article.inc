@@ -99,6 +99,18 @@ function _unbscholar_islandora_form_operations_journal_article_form_alter(&$form
   $form['principalAuthorInformation']['UNBFacetInfo']['Group_Name']['#options'] = _unbscholar_islandora_form_operations_get_options_from_file('centres.txt');
   $form['principalAuthorInformation']['UNBFacetInfo']['Group_Name']['#validated'] = TRUE;
   $form['principalAuthorInformation']['UNBFacetInfo']['Group_Name']['#empty_value'] = '';
+
+  // Hide some fields from all but administrators.
+  if (
+    !user_has_role(user_role_load_by_name('METADATA_RECORDS_EDITOR')->rid) &&
+    !user_has_role(user_role_load_by_name('ADMINISTRATOR')->rid)
+  ) {
+    hide($form['extensionTop']['facetInformationTop']['collectionName']);
+    hide($form['titleInfoAlt']['titleAlt']);
+    hide($form['identifiers']['uri']);
+    hide($form['identifiers']['pmcid']);
+    hide($form['identifiers']['oclc']);
+  }
 }
 
 /**
