@@ -44,6 +44,7 @@ function _unbscholar_islandora_form_operations_journal_article_form_alter(&$form
   // Research group name.
   $form['principalAuthorInformation']['UNBFacetInfo']['Group_Name']['#options'] = _unbscholar_islandora_form_operations_get_options_from_file('centres.txt');
   $form['principalAuthorInformation']['UNBFacetInfo']['Group_Name']['#validated'] = TRUE;
+  $form['principalAuthorInformation']['UNBFacetInfo']['Group_Name']['#empty_value'] = '';
 
   // Hide some fields from all but administrators.
   if (
