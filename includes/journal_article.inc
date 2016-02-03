@@ -28,69 +28,14 @@ function _unbscholar_islandora_form_operations_journal_article_form_alter(&$form
   // Institution name.
   $form['principalAuthorInformation']['UNBFacetInfo']['Institution_Name']['#options'] = _unbscholar_islandora_form_operations_get_options_from_file('campus.txt');
   $form['principalAuthorInformation']['UNBFacetInfo']['Institution_Name']['#validated'] = TRUE;
-  $form['principalAuthorInformation']['UNBFacetInfo']['Institution_Name']['#empty_value'] = '';
-  $form['principalAuthorInformation']['UNBFacetInfo']['Institution_Name']['#ajax'] = array(
-    'wrapper' => 'author-details-wrapper',
-    'callback' => '_unbscholar_islandora_form_operations_principal_author_information_callback',
-    'method' => 'replace',
-  );
 
   // Faculty name.
-  $campus_slug = '';
-  $campus = isset($form_state['values']['principalAuthorInformation']['UNBFacetInfo']['Institution_Name']) ? trim($form_state['values']['principalAuthorInformation']['UNBFacetInfo']['Institution_Name']) : $form['principalAuthorInformation']['UNBFacetInfo']['Institution_Name']['#empty_value'];
-  switch ($campus) {
-    case 'Fredericton':
-      $campus_slug = 'fredericton';
-      break;
-
-    case 'Saint John':
-      $campus_slug = 'saint_john';
-      break;
-  }
-  $form['principalAuthorInformation']['UNBFacetInfo']['Faculty_Name']['#options'] = _unbscholar_islandora_form_operations_get_options_from_file("$campus_slug/faculty.txt");
+  $form['principalAuthorInformation']['UNBFacetInfo']['Faculty_Name']['#options'] = _unbscholar_islandora_form_operations_get_options_from_file('faculty.txt');
   $form['principalAuthorInformation']['UNBFacetInfo']['Faculty_Name']['#validated'] = TRUE;
-  $form['principalAuthorInformation']['UNBFacetInfo']['Faculty_Name']['#empty_value'] = '';
-  $form['principalAuthorInformation']['UNBFacetInfo']['Faculty_Name']['#ajax'] = array(
-    'wrapper' => 'author-details-wrapper',
-    'callback' => '_unbscholar_islandora_form_operations_principal_author_information_callback',
-    'method' => 'replace',
-  );
 
   // Department name.
-  $faculty = isset($form_state['values']['principalAuthorInformation']['UNBFacetInfo']['Faculty_Name']) ? trim($form_state['values']['principalAuthorInformation']['UNBFacetInfo']['Faculty_Name']) : $form['principalAuthorInformation']['UNBFacetInfo']['Faculty_Name']['#empty_value'];
-  $form['principalAuthorInformation']['UNBFacetInfo']['Department_Name']['#empty_value'] = '';
+  $form['principalAuthorInformation']['UNBFacetInfo']['Department_Name']['#options'] = _unbscholar_islandora_form_operations_get_options_from_file('department.txt');
   $form['principalAuthorInformation']['UNBFacetInfo']['Department_Name']['#validated'] = TRUE;
-  if (!in_array(
-    $faculty,
-    array(
-      'Arts',
-      'Engineering',
-      'Science',
-      'Science, Applied Science & Engineering',
-    )
-  )) {
-    $form['principalAuthorInformation']['UNBFacetInfo']['Department_Name']['#type'] = 'hidden';
-    $form['principalAuthorInformation']['UNBFacetInfo']['Department_Name']['#value'] = '';
-    $form['principalAuthorInformation']['UNBFacetInfo']['Department_Name']['#options'] = array();
-  }
-  switch ($faculty) {
-    case 'Arts':
-      $department_file = 'arts';
-      break;
-
-    case 'Engineering':
-      $department_file = 'engineering';
-      break;
-
-    case 'Science':
-    case 'Science, Applied Science & Engineering':
-      $department_file = 'science';
-      break;
-
-  }
-  if (isset($department_file)) {
-    $form['principalAuthorInformation']['UNBFacetInfo']['Department_Name']['#options'] = _unbscholar_islandora_form_operations_get_options_from_file("$campus_slug/$department_file.txt");
-  }
 
   // Discipline name.
   $form['principalAuthorInformation']['UNBFacetInfo']['Discipline_Name']['#options'] = _unbscholar_islandora_form_operations_get_options_from_file('discipline.txt');
@@ -99,7 +44,6 @@ function _unbscholar_islandora_form_operations_journal_article_form_alter(&$form
   // Research group name.
   $form['principalAuthorInformation']['UNBFacetInfo']['Group_Name']['#options'] = _unbscholar_islandora_form_operations_get_options_from_file('centres.txt');
   $form['principalAuthorInformation']['UNBFacetInfo']['Group_Name']['#validated'] = TRUE;
-  $form['principalAuthorInformation']['UNBFacetInfo']['Group_Name']['#empty_value'] = '';
 
   // Hide some fields from all but administrators.
   if (

@@ -1,4 +1,5 @@
 Arts
+Business
 Business Administraton
 Computer Science
 Education
@@ -9,3 +10,4 @@ Law
 Nursing
 Renaissance College
 Science
+Science, Applied Science & Engineering
