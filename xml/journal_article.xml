@@ -32,66 +32,6 @@
       </actions>
     </properties>
     <children>
-      <element name="formDataType">
-        <properties>
-          <type>hidden</type>
-          <access>TRUE</access>
-          <collapsed>FALSE</collapsed>
-          <collapsible>FALSE</collapsible>
-          <default_value>journal_article</default_value>
-          <description>Form Identifier for Callbacks</description>
-          <disabled>FALSE</disabled>
-          <executes_submit_callback>FALSE</executes_submit_callback>
-          <multiple>FALSE</multiple>
-          <required>FALSE</required>
-          <resizable>FALSE</resizable>
-          <title>FormName</title>
-          <tree>TRUE</tree>
-          <value>journal_article</value>
-        </properties>
-        <children/>
-      </element>
-      <element name="publication_type">
-        <properties>
-          <type>hidden</type>
-          <access>TRUE</access>
-          <collapsed>FALSE</collapsed>
-          <collapsible>FALSE</collapsible>
-          <default_value>article</default_value>
-          <disabled>FALSE</disabled>
-          <executes_submit_callback>FALSE</executes_submit_callback>
-          <multiple>FALSE</multiple>
-          <options>
-            <article>Article</article>
-            <interview>Interview</interview>
-            <review>Review</review>
-          </options>
-          <required>FALSE</required>
-          <resizable>FALSE</resizable>
-          <title>Publication Type</title>
-          <tree>TRUE</tree>
-          <actions>
-            <create>
-              <path>self::node()</path>
-              <context>parent</context>
-              <schema/>
-              <type>element</type>
-              <prefix>NULL</prefix>
-              <value>genre</value>
-            </create>
-            <read>
-              <path>mods:genre</path>
-              <context>parent</context>
-            </read>
-            <update>
-              <path>self::node()</path>
-              <context>self</context>
-            </update>
-            <delete>NULL</delete>
-          </actions>
-        </properties>
-        <children/>
-      </element>
       <element name="typeOfResource">
         <properties>
           <type>hidden</type>
@@ -103,15 +43,17 @@
           <multiple>FALSE</multiple>
           <required>FALSE</required>
           <resizable>FALSE</resizable>
+          <title>Type of Resource</title>
           <tree>TRUE</tree>
+          <value>text</value>
           <actions>
             <create>
               <path>self::node()</path>
               <context>parent</context>
               <schema/>
-              <type>xml</type>
+              <type>element</type>
               <prefix>NULL</prefix>
-              <value>&lt;typeOfResource&gt;text&lt;/typeOfResource&gt;</value>
+              <value>typeOfResource</value>
             </create>
             <read>
               <path>mods:typeOfResource</path>
@@ -126,14 +68,32 @@
         </properties>
         <children/>
       </element>
-      <element name="typeOfObject">
+      <element name="formDataType">
+        <properties>
+          <type>hidden</type>
+          <access>TRUE</access>
+          <collapsed>FALSE</collapsed>
+          <collapsible>FALSE</collapsible>
+          <description>Form Identifier for Callbacks</description>
+          <disabled>FALSE</disabled>
+          <executes_submit_callback>FALSE</executes_submit_callback>
+          <multiple>FALSE</multiple>
+          <required>FALSE</required>
+          <resizable>FALSE</resizable>
+          <title>FormName</title>
+          <tree>TRUE</tree>
+          <value>journal_article</value>
+        </properties>
+        <children/>
+      </element>
+      <element name="genre">
         <properties>
           <type>select</type>
           <access>TRUE</access>
           <collapsed>FALSE</collapsed>
           <collapsible>FALSE</collapsible>
           <default_value>Article</default_value>
-          <description>Faceted field for type of object in the repository based on a collection or sub-collection</description>
+          <description>What kind of submission is this? </description>
           <disabled>FALSE</disabled>
           <executes_submit_callback>FALSE</executes_submit_callback>
           <multiple>FALSE</multiple>
@@ -144,20 +104,19 @@
           </options>
           <required>FALSE</required>
           <resizable>FALSE</resizable>
-          <title>Object Type</title>
+          <title>Submission Type</title>
           <tree>TRUE</tree>
           <actions>
             <create>
               <path>self::node()</path>
               <context>parent</context>
               <schema/>
-              <type>xml</type>
+              <type>element</type>
               <prefix>NULL</prefix>
-              <value>&lt;extension&gt;
-&lt;mods:unbFacetInfo xmlns:mods="http://www.loc.gov/mods/v3"&gt;&lt;mods:unbObjectType&gt;%value%&lt;/mods:unbObjectType&gt;&lt;/mods:unbFacetInfo&gt;&lt;/extension&gt;</value>
+              <value>genre</value>
             </create>
             <read>
-              <path>mods:extension/mods:unbFacetInfo/mods:unbObjectType</path>
+              <path>mods:genre</path>
               <context>parent</context>
             </read>
             <update>
@@ -365,6 +324,58 @@
         </properties>
         <children/>
       </element>
+      <element name="originInfoItemDate">
+        <properties>
+          <type>markup</type>
+          <access>TRUE</access>
+          <collapsed>FALSE</collapsed>
+          <collapsible>FALSE</collapsible>
+          <disabled>FALSE</disabled>
+          <executes_submit_callback>FALSE</executes_submit_callback>
+          <multiple>FALSE</multiple>
+          <required>FALSE</required>
+          <resizable>FALSE</resizable>
+          <title>originInfo Date</title>
+          <tree>TRUE</tree>
+        </properties>
+        <children>
+          <element name="dateIssued">
+            <properties>
+              <type>datepicker</type>
+              <access>TRUE</access>
+              <collapsed>FALSE</collapsed>
+              <collapsible>FALSE</collapsible>
+              <disabled>FALSE</disabled>
+              <executes_submit_callback>FALSE</executes_submit_callback>
+              <multiple>FALSE</multiple>
+              <required>FALSE</required>
+              <resizable>FALSE</resizable>
+              <title>Publication Date of Article</title>
+              <tree>TRUE</tree>
+              <actions>
+                <create>
+                  <path>self::node()</path>
+                  <context>parent</context>
+                  <schema/>
+                  <type>element</type>
+                  <prefix>NULL</prefix>
+                  <value>dateIssued</value>
+                </create>
+                <read>
+                  <path>mods:dateIssued</path>
+                  <context>parent</context>
+                </read>
+                <update>
+                  <path>self::node()</path>
+                  <context>self</context>
+                </update>
+                <delete>NULL</delete>
+              </actions>
+            </properties>
+            <children/>
+          </element>
+        </children>
+      </element>
       <element name="copyright_information">
         <properties>
           <type>textarea</type>
@@ -440,7 +451,7 @@
               <access>TRUE</access>
               <collapsed>FALSE</collapsed>
               <collapsible>FALSE</collapsible>
-              <description>URL for the published article. </description>
+              <description>URL for the publisher's version of the article, if there is one. </description>
               <disabled>FALSE</disabled>
               <executes_submit_callback>FALSE</executes_submit_callback>
               <multiple>FALSE</multiple>
@@ -474,7 +485,7 @@
       </element>
       <element name="identifiers">
         <properties>
-          <type>markup</type>
+          <type>fieldset</type>
           <access>TRUE</access>
           <collapsed>FALSE</collapsed>
           <collapsible>FALSE</collapsible>
@@ -493,7 +504,7 @@
               <access>TRUE</access>
               <collapsed>FALSE</collapsed>
               <collapsible>FALSE</collapsible>
-              <description>Digital object identifier of the item</description>
+              <description>Digital object identifier of the item.</description>
               <disabled>FALSE</disabled>
               <executes_submit_callback>FALSE</executes_submit_callback>
               <multiple>FALSE</multiple>
@@ -584,6 +595,42 @@
                 </create>
                 <read>
                   <path>mods:identifier[@type='pmc']</path>
+                  <context>parent</context>
+                </read>
+                <update>
+                  <path>self::node()</path>
+                  <context>self</context>
+                </update>
+                <delete>NULL</delete>
+              </actions>
+            </properties>
+            <children/>
+          </element>
+          <element name="oclc">
+            <properties>
+              <type>textfield</type>
+              <access>TRUE</access>
+              <collapsed>FALSE</collapsed>
+              <collapsible>FALSE</collapsible>
+              <description>OCLC Number for the submitted item. </description>
+              <disabled>FALSE</disabled>
+              <executes_submit_callback>FALSE</executes_submit_callback>
+              <multiple>FALSE</multiple>
+              <required>FALSE</required>
+              <resizable>FALSE</resizable>
+              <title>OCLC</title>
+              <tree>TRUE</tree>
+              <actions>
+                <create>
+                  <path>self::node()</path>
+                  <context>parent</context>
+                  <schema/>
+                  <type>xml</type>
+                  <prefix>NULL</prefix>
+                  <value>&lt;identifier type="oclc"&gt;%value%&lt;/identifier&gt;</value>
+                </create>
+                <read>
+                  <path>mods:identifier[@type='oclc']</path>
                   <context>parent</context>
                 </read>
                 <update>
@@ -727,7 +774,7 @@
               </element>
               <element name="qualified_name">
                 <properties>
-                  <type>textfield</type>
+                  <type>hidden</type>
                   <access>TRUE</access>
                   <autocomplete_path>islandora/entities/autocomplete/disambiguated</autocomplete_path>
                   <collapsed>FALSE</collapsed>
@@ -807,13 +854,12 @@
           </element>
         </children>
       </element>
-      <element name="principalAuthorInformation">
+      <element name="extension">
         <properties>
           <type>markup</type>
           <access>TRUE</access>
           <collapsed>FALSE</collapsed>
           <collapsible>FALSE</collapsible>
-          <description>Metadata related to the principle author within this system. </description>
           <disabled>FALSE</disabled>
           <executes_submit_callback>FALSE</executes_submit_callback>
           <multiple>FALSE</multiple>
@@ -821,24 +867,100 @@
           <required>FALSE</required>
           <resizable>FALSE</resizable>
           <suffix>&lt;/div&gt;</suffix>
-          <title>Principal Author Information</title>
+          <title>Extension</title>
           <tree>TRUE</tree>
+          <actions>
+            <create>
+              <path>self::node()</path>
+              <context>parent</context>
+              <schema/>
+              <type>element</type>
+              <prefix>NULL</prefix>
+              <value>extension</value>
+            </create>
+            <read>
+              <path>mods:extension</path>
+              <context>parent</context>
+            </read>
+            <update>
+              <path>self::node()</path>
+              <context>self</context>
+            </update>
+            <delete>NULL</delete>
+          </actions>
         </properties>
         <children>
-          <element name="UNBFacetInfo">
+          <element name="Facet_Information">
             <properties>
-              <type>markup</type>
+              <type>fieldset</type>
               <access>TRUE</access>
               <collapsed>FALSE</collapsed>
               <collapsible>FALSE</collapsible>
+              <description>&lt;p&gt;Facet information is metadata used specifically by UNB Scholar to improve searching and collections building. Metadata in these fields may be used to narrow-down search results or help designate specific items to unique collections.&lt;/p&gt;</description>
               <disabled>FALSE</disabled>
               <executes_submit_callback>FALSE</executes_submit_callback>
               <multiple>FALSE</multiple>
               <required>FALSE</required>
               <resizable>FALSE</resizable>
+              <title>Facet Information</title>
               <tree>TRUE</tree>
+              <actions>
+                <create>
+                  <path>self::node()</path>
+                  <context>parent</context>
+                  <schema/>
+                  <type>element</type>
+                  <prefix>NULL</prefix>
+                  <value>unbfacetInfo</value>
+                </create>
+                <read>
+                  <path>mods:unbfacetInfo</path>
+                  <context>parent</context>
+                </read>
+                <update>
+                  <path>self::node()</path>
+                  <context>self</context>
+                </update>
+                <delete>NULL</delete>
+              </actions>
             </properties>
             <children>
+              <element name="collectionName">
+                <properties>
+                  <type>select</type>
+                  <access>TRUE</access>
+                  <collapsed>FALSE</collapsed>
+                  <collapsible>FALSE</collapsible>
+                  <description>Please select which collection this submission is intended for. </description>
+                  <disabled>FALSE</disabled>
+                  <executes_submit_callback>FALSE</executes_submit_callback>
+                  <multiple>FALSE</multiple>
+                  <required>FALSE</required>
+                  <resizable>FALSE</resizable>
+                  <title>Collection</title>
+                  <tree>TRUE</tree>
+                  <actions>
+                    <create>
+                      <path>self::node()</path>
+                      <context>parent</context>
+                      <schema/>
+                      <type>element</type>
+                      <prefix>NULL</prefix>
+                      <value>unbCollectionName</value>
+                    </create>
+                    <read>
+                      <path>mods:unbCollectionName</path>
+                      <context>parent</context>
+                    </read>
+                    <update>
+                      <path>self::node()</path>
+                      <context>self</context>
+                    </update>
+                    <delete>NULL</delete>
+                  </actions>
+                </properties>
+                <children/>
+              </element>
               <element name="Level_of_Scholarship">
                 <properties>
                   <type>select</type>
@@ -984,6 +1106,41 @@
                 </properties>
                 <children/>
               </element>
+              <element name="Discipline_Name">
+                <properties>
+                  <type>select</type>
+                  <access>TRUE</access>
+                  <collapsed>FALSE</collapsed>
+                  <collapsible>FALSE</collapsible>
+                  <disabled>FALSE</disabled>
+                  <executes_submit_callback>FALSE</executes_submit_callback>
+                  <multiple>FALSE</multiple>
+                  <required>FALSE</required>
+                  <resizable>FALSE</resizable>
+                  <title>Discipline</title>
+                  <tree>TRUE</tree>
+                  <actions>
+                    <create>
+                      <path>self::node()</path>
+                      <context>parent</context>
+                      <schema/>
+                      <type>element</type>
+                      <prefix>NULL</prefix>
+                      <value>unbDisciplineName</value>
+                    </create>
+                    <read>
+                      <path>mods:unbDisciplineName</path>
+                      <context>parent</context>
+                    </read>
+                    <update>
+                      <path>self::node()</path>
+                      <context>self</context>
+                    </update>
+                    <delete>NULL</delete>
+                  </actions>
+                </properties>
+                <children/>
+              </element>
               <element name="Group_Name">
                 <properties>
                   <type>select</type>
@@ -1029,7 +1186,7 @@
           <access>TRUE</access>
           <collapsed>FALSE</collapsed>
           <collapsible>FALSE</collapsible>
-          <description>A study group or name of a collaboration that is an author; for example the Consortium of Investigators of Modifiers of BRCA1 and BRCA2 (CIMBA) on PMID: 17466083</description>
+          <description>A study group or name of a collaborative group that can be listed as an author; for example: &lt;em&gt;New Brunswick Department of Natural Resources&lt;/em&gt;. </description>
           <disabled>FALSE</disabled>
           <executes_submit_callback>FALSE</executes_submit_callback>
           <multiple>FALSE</multiple>
@@ -1080,19 +1237,42 @@
       </element>
       <element name="ArticleIsPublished">
         <properties>
-          <type>checkbox</type>
+          <type>select</type>
           <access>TRUE</access>
           <collapsed>FALSE</collapsed>
           <collapsible>FALSE</collapsible>
-          <default_value>0</default_value>
+          <default_value>NO</default_value>
           <description>Was the article published in a journal or publication?</description>
           <disabled>FALSE</disabled>
           <executes_submit_callback>FALSE</executes_submit_callback>
           <multiple>FALSE</multiple>
+          <options>
+            <Yes>Yes</Yes>
+            <No>No</No>
+          </options>
           <required>FALSE</required>
           <resizable>FALSE</resizable>
           <title>Article Is Published</title>
           <tree>TRUE</tree>
+          <actions>
+            <create>
+              <path>self::node()</path>
+              <context>parent</context>
+              <schema/>
+              <type>element</type>
+              <prefix>NULL</prefix>
+              <value>ArticleIsPublished</value>
+            </create>
+            <read>
+              <path>mods:ArticleIsPublished</path>
+              <context>parent</context>
+            </read>
+            <update>
+              <path>self::node()</path>
+              <context>self</context>
+            </update>
+            <delete>NULL</delete>
+          </actions>
         </properties>
         <children/>
       </element>
@@ -1185,7 +1365,7 @@
             <children>
               <element name="0">
                 <properties>
-                  <type>textarea</type>
+                  <type>tag</type>
                   <access>TRUE</access>
                   <collapsed>FALSE</collapsed>
                   <collapsible>FALSE</collapsible>
@@ -1262,12 +1442,13 @@
                   <access>TRUE</access>
                   <collapsed>FALSE</collapsed>
                   <collapsible>FALSE</collapsible>
+                  <description>Publication year. </description>
                   <disabled>FALSE</disabled>
                   <executes_submit_callback>FALSE</executes_submit_callback>
                   <multiple>FALSE</multiple>
                   <required>FALSE</required>
                   <resizable>FALSE</resizable>
-                  <title>Date</title>
+                  <title>Publication Date of Issue</title>
                   <tree>TRUE</tree>
                   <actions>
                     <create>
@@ -1615,6 +1796,7 @@
                   <access>TRUE</access>
                   <collapsed>FALSE</collapsed>
                   <collapsible>FALSE</collapsible>
+                  <description>URL for publisher's page for the issue this article was in. </description>
                   <disabled>FALSE</disabled>
                   <executes_submit_callback>FALSE</executes_submit_callback>
                   <multiple>FALSE</multiple>
@@ -1670,6 +1852,41 @@
                 </create>
                 <read>
                   <path>mods:identifier[@type="issn"]</path>
+                  <context>parent</context>
+                </read>
+                <update>
+                  <path>self::node()</path>
+                  <context>self</context>
+                </update>
+                <delete>NULL</delete>
+              </actions>
+            </properties>
+            <children/>
+          </element>
+          <element name="isbn">
+            <properties>
+              <type>textfield</type>
+              <access>TRUE</access>
+              <collapsed>FALSE</collapsed>
+              <collapsible>FALSE</collapsible>
+              <disabled>FALSE</disabled>
+              <executes_submit_callback>FALSE</executes_submit_callback>
+              <multiple>FALSE</multiple>
+              <required>FALSE</required>
+              <resizable>FALSE</resizable>
+              <title>ISBN</title>
+              <tree>TRUE</tree>
+              <actions>
+                <create>
+                  <path>self::node()</path>
+                  <context>parent</context>
+                  <schema/>
+                  <type>xml</type>
+                  <prefix>NULL</prefix>
+                  <value>&lt;identifier type="isbn"&gt;%value%&lt;/identifier&gt;</value>
+                </create>
+                <read>
+                  <path>mods:identifier[@type="isbn"]</path>
                   <context>parent</context>
                 </read>
                 <update>
@@ -1836,7 +2053,7 @@
           <description>Notes, comments, corrections to the publication record; typically done by library staff or other administrators of the system</description>
           <disabled>FALSE</disabled>
           <executes_submit_callback>FALSE</executes_submit_callback>
-          <multiple>FALSE</multiple>
+          <multiple>TRUE</multiple>
           <required>FALSE</required>
           <resizable>FALSE</resizable>
           <title>Notes</title>
