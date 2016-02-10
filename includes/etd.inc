@@ -18,9 +18,9 @@ function _unbscholar_islandora_form_operations_etd_form_alter(&$form, &$form_sta
   );
 
   // Collection.
-  $form['extensionTop']['facetInformationTop']['collectionName']['#options'] = _unbscholar_islandora_form_operations_get_options_from_file('collection.txt');
-  $form['extensionTop']['facetInformationTop']['collectionName']['#validated'] = TRUE;
-  $form['extensionTop']['facetInformationTop']['collectionName']['#empty_value'] = '';
+  $form['extension']['Facet_Information']['collectionName']['#options'] = _unbscholar_islandora_form_operations_get_options_from_file('collection.txt');
+  $form['extension']['Facet_Information']['collectionName']['#validated'] = TRUE;
+  $form['extension']['Facet_Information']['collectionName']['#empty_value'] = '';
 
   // Level of scholarship.
   $form['extension']['Facet_Information']['Level_of_Scholarship']['#options'] = _unbscholar_islandora_form_operations_get_options_from_file('level.txt');
