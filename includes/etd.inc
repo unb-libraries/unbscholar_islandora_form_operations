@@ -52,4 +52,9 @@ function _unbscholar_islandora_form_operations_etd_form_alter(&$form, &$form_sta
   $form['extension']['Facet_Information']['Group_Name']['#validated'] = TRUE;
   $form['extension']['Facet_Information']['Group_Name']['#empty_value'] = '';
 
+  // Degree name.
+  $form['extension']['Facet_Information']['degreeName']['#options'] = _unbscholar_islandora_form_operations_get_options_from_file('degree_name.txt');
+  $form['extension']['Facet_Information']['degreeName']['#validated'] = TRUE;
+  $form['extension']['Facet_Information']['degreeName']['#empty_value'] = '';
+
 }
