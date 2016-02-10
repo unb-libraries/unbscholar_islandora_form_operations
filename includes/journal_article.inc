@@ -13,7 +13,7 @@ function _unbscholar_islandora_form_operations_journal_article_form_alter(&$form
   // Article is published?
   $form['host']['#states'] = array(
     'visible' => array(
-      ':input[name="ArticleIsPublished"]' => array('value' => 'Yes'),
+      ':input[name="extension[ArticleIsPublished]"]' => array('value' => 'Yes'),
     ),
   );
 

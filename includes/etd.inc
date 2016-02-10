@@ -10,13 +10,6 @@
  */
 function _unbscholar_islandora_form_operations_etd_form_alter(&$form, &$form_state) {
 
-  // Article is published?
-  $form['host']['#states'] = array(
-    'visible' => array(
-      ':input[name="ArticleIsPublished"]' => array('value' => 'Yes'),
-    ),
-  );
-
   // Collection.
   $form['extension']['Facet_Information']['collectionName']['#options'] = _unbscholar_islandora_form_operations_get_options_from_file('collection.txt');
   $form['extension']['Facet_Information']['collectionName']['#validated'] = TRUE;
