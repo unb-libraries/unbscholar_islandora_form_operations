@@ -2,20 +2,13 @@
 
 /**
  * @file
- * Defines alterations for the journal_article type Islandora metadata form.
+ * Defines alterations for the undergraduate type Islandora metadata form.
  */
 
 /**
- * Callback: Alter the Islandora journal_article type form elements.
+ * Callback: Alter the Islandora undergraduate type form elements.
  */
-function _unbscholar_islandora_form_operations_journal_article_form_alter(&$form, &$form_state) {
-
-  // Article is published?
-  $form['host']['#states'] = array(
-    'visible' => array(
-      ':input[name="extension[ArticleIsPublished]"]' => array('value' => 'Yes'),
-    ),
-  );
+function _unbscholar_islandora_form_operations_undergraduate_form_alter(&$form, &$form_state) {
 
   // Collection.
   $form['extension']['Facet_Information']['collectionName']['#options'] = _unbscholar_islandora_form_operations_get_options_from_file('collection.txt');
@@ -52,22 +45,9 @@ function _unbscholar_islandora_form_operations_journal_article_form_alter(&$form
   $form['extension']['Facet_Information']['Group_Name']['#validated'] = TRUE;
   $form['extension']['Facet_Information']['Group_Name']['#empty_value'] = '';
 
-  // Hide some fields from all but administrators.
-  if (
-    !user_has_role(user_role_load_by_name('METADATA_RECORDS_EDITOR')->rid) &&
-    !user_has_role(user_role_load_by_name('ADMINISTRATOR')->rid)
-  ) {
-    hide($form['extension']['Facet_Information']['collectionName']);
-    hide($form['titleInfoAlt']['titleAlt']);
-    hide($form['identifiers']['uri']);
-    hide($form['identifiers']['pmcid']);
-    hide($form['identifiers']['oclc']);
-  }
-}
+  // Degree name.
+  $form['extension']['Facet_Information']['degreeName']['#options'] = _unbscholar_islandora_form_operations_get_options_from_file('degree_name.txt');
+  $form['extension']['Facet_Information']['degreeName']['#validated'] = TRUE;
+  $form['extension']['Facet_Information']['degreeName']['#empty_value'] = '';
 
-/**
- * AJAX form callback : Get 'principalAuthorInformation' form element.
- */
-function _unbscholar_islandora_form_operations_principal_author_information_callback($form, $form_state) {
-  return $form['principalAuthorInformation'];
 }

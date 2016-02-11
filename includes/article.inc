@@ -2,13 +2,20 @@
 
 /**
  * @file
- * Defines alterations for the etd type Islandora metadata form.
+ * Defines alterations for the article type Islandora metadata form.
  */
 
 /**
- * Callback: Alter the Islandora etd type form elements.
+ * Callback: Alter the Islandora article type form elements.
  */
-function _unbscholar_islandora_form_operations_etd_form_alter(&$form, &$form_state) {
+function _unbscholar_islandora_form_operations_article_form_alter(&$form, &$form_state) {
+
+  // Article is published?
+  $form['host']['#states'] = array(
+    'visible' => array(
+      ':input[name="extension[ArticleIsPublished]"]' => array('value' => 'Yes'),
+    ),
+  );
 
   // Collection.
   $form['extension']['Facet_Information']['collectionName']['#options'] = _unbscholar_islandora_form_operations_get_options_from_file('collection.txt');
@@ -45,9 +52,22 @@ function _unbscholar_islandora_form_operations_etd_form_alter(&$form, &$form_sta
   $form['extension']['Facet_Information']['Group_Name']['#validated'] = TRUE;
   $form['extension']['Facet_Information']['Group_Name']['#empty_value'] = '';
 
-  // Degree name.
-  $form['extension']['Facet_Information']['degreeName']['#options'] = _unbscholar_islandora_form_operations_get_options_from_file('degree_name.txt');
-  $form['extension']['Facet_Information']['degreeName']['#validated'] = TRUE;
-  $form['extension']['Facet_Information']['degreeName']['#empty_value'] = '';
+  // Hide some fields from all but administrators.
+  if (
+    !user_has_role(user_role_load_by_name('METADATA_RECORDS_EDITOR')->rid) &&
+    !user_has_role(user_role_load_by_name('ADMINISTRATOR')->rid)
+  ) {
+    hide($form['extension']['Facet_Information']['collectionName']);
+    hide($form['titleInfoAlt']['titleAlt']);
+    hide($form['identifiers']['uri']);
+    hide($form['identifiers']['pmcid']);
+    hide($form['identifiers']['oclc']);
+  }
+}
 
+/**
+ * AJAX form callback : Get 'principalAuthorInformation' form element.
+ */
+function _unbscholar_islandora_form_operations_principal_author_information_callback($form, $form_state) {
+  return $form['principalAuthorInformation'];
 }
