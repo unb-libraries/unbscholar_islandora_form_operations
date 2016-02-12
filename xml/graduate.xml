@@ -97,6 +97,7 @@
           <executes_submit_callback>FALSE</executes_submit_callback>
           <multiple>FALSE</multiple>
           <options>
+            <index key="Nursing Synthesis Paper">Nursing Synthesis Paper</index>
             <index key="Thesis / Dissertation">Thesis / Dissertation</index>
           </options>
           <required>FALSE</required>

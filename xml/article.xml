@@ -774,7 +774,7 @@
               </element>
               <element name="qualified_name">
                 <properties>
-                  <type>hidden</type>
+                  <type>textfield</type>
                   <access>TRUE</access>
                   <autocomplete_path>islandora/entities/autocomplete/disambiguated</autocomplete_path>
                   <collapsed>FALSE</collapsed>

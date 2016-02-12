@@ -92,12 +92,13 @@
           <autocomplete_path>islandora_autocomplete/islandora:citationCModel/mods.genre</autocomplete_path>
           <collapsed>FALSE</collapsed>
           <collapsible>FALSE</collapsible>
-          <default_value>Thesis / Dissertation</default_value>
+          <default_value>Senior Report</default_value>
           <disabled>FALSE</disabled>
           <executes_submit_callback>FALSE</executes_submit_callback>
           <multiple>FALSE</multiple>
           <options>
-            <index key="Thesis / Dissertation">Thesis / Dissertation</index>
+            <index key="Senior Report">Senior Report</index>
+            <index key="Honours Thesis">Honours Thesis</index>
           </options>
           <required>FALSE</required>
           <resizable>FALSE</resizable>
@@ -1514,13 +1515,12 @@
                   <access>TRUE</access>
                   <collapsed>FALSE</collapsed>
                   <collapsible>FALSE</collapsible>
-                  <default_value>masters</default_value>
+                  <default_value>undergraduate</default_value>
                   <disabled>FALSE</disabled>
                   <executes_submit_callback>FALSE</executes_submit_callback>
                   <multiple>FALSE</multiple>
                   <options>
-                    <doctoral>doctoral</doctoral>
-                    <masters>masters</masters>
+                    <undergraduate>undergraduate</undergraduate>
                   </options>
                   <required>FALSE</required>
                   <resizable>FALSE</resizable>
@@ -1640,8 +1640,7 @@
                   <executes_submit_callback>FALSE</executes_submit_callback>
                   <multiple>FALSE</multiple>
                   <options>
-                    <etd>Electronic Theses and Dissertations</etd>
-                    <unbGrad>Graduate Submissions</unbGrad>
+                    <index key="Undergraduate Works">Undergraduate Works</index>
                   </options>
                   <required>FALSE</required>
                   <resizable>FALSE</resizable>
