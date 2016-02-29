@@ -3,6 +3,7 @@
  * @file
  * Alter Islandora forms : dependent/controlled metadata fields for UNB Scholar.
  */
+
 define('UNBSCHOLAR_ISLANDORA_FORM_OPERATIONS_TYPE_FIELD', 'formDataType');
 
 /**
