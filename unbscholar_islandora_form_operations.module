@@ -35,7 +35,7 @@ function unbscholar_islandora_form_operations_ir_thesisCModel_islandora_view_obj
   if (_unbscholar_islandora_form_operations_datastream_exists_user_unauth($object, 'PDF')) {
     drupal_set_message(
       t(
-        'Additional resources related to this item are available, however they are restricted to the UNB community. To view them, please <a href="@login_url">Login</a>.',
+        'Additional resources related to this item are available, however they are restricted to the UNB community. To view them, please <a href="@login_url">log in</a>.',
         array(
           '@login_url' => '/user/login?destination=' . current_path(),
         )
