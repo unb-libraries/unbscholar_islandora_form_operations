@@ -6,7 +6,7 @@
  */
 
 /**
- * Alter a views exposed filter form to use dropdowns populated by solr.
+ * Alter faculty_works view filters to use dropdowns populated by solr.
  *
  * @param object $form
  *      The form that will have the controls added to iterator_apply.
