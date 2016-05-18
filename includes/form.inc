@@ -60,8 +60,9 @@ function _unbscholar_islandora_form_operations_alter_senior_reports_filters(&$fo
  */
 function _unbscholar_islandora_form_operations_alter_filters_add_reset(&$form) {
   $reset_label = t('Reset Filters');
+  $cur_url = strtok($_SERVER["REQUEST_URI"],'?');
   $form['submit']['#value'] = 'Filter';
   $form['reset'] = array(
-    '#markup' => "<input type=\"reset\" value=\"$reset_label\" class=\"form-submit\">",
+    '#markup' => "<a class=\"form-submit\" href=\"$cur_url\">$reset_label</a>",
   );
 }
