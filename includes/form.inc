@@ -45,7 +45,7 @@ function _unbscholar_islandora_form_operations_alter_faculty_works_filters(&$for
  */
 function _unbscholar_islandora_form_operations_alter_senior_reports_filters(&$form) {
   form_load_include($form_state, 'inc', 'unbscholar_islandora_form_operations', 'includes/solr');
-  $query_string = 'RELS_EXT_hasModel_uri_ms:"info:fedora/ir:citationCModel"';
+  $query_string = 'mods_genre_s:"Senior Report"';
 
   _unbscholar_islandora_form_operations_replace_field_with_unique_solr_results($form, 'mods_extension_unbfacetInfo_unbFacultyName', $query_string);
   _unbscholar_islandora_form_operations_replace_field_with_unique_solr_results($form, 'mods_extension_unbfacetInfo_unbDepartmentName', $query_string);
