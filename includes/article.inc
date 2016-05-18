@@ -62,6 +62,7 @@ function _unbscholar_islandora_form_operations_article_form_alter(&$form, &$form
     hide($form['identifiers']['uri']);
     hide($form['identifiers']['pmcid']);
     hide($form['identifiers']['oclc']);
+    hide($form['authors']['qualified_name']);
   }
 }
 
