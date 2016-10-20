@@ -1,2 +1,9 @@
+<<<<<<< Updated upstream
 Theses & Dissertations
 Senior Reports
+=======
+Electronic Theses and Dissertations
+Faculty/Staff Works
+Undergraduate Works
+Mactaquac Aquatic Ecosystem Study (MAES)
+>>>>>>> Stashed changes
