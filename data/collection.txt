@@ -1,7 +1,3 @@
-<<<<<<< Updated upstream
 Theses & Dissertations
 Senior Reports
 Mactaquac Aquatic Ecosystem Study Report Series
-=======
-
->>>>>>> Stashed changes
