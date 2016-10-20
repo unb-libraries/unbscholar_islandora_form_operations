@@ -3,7 +3,7 @@ Archaeology
 Arts
 Biology
 Business
-Business Administraton
+Business Administration
 Chemical Engineering
 Chemistry
 Civil Engineering
@@ -19,7 +19,7 @@ Electrical and Computer Engineering
 Engineering
 English
 Forest Engineering
-Forestry & Enviromental Management
+Forestry & Environmental Management
 French
 Gender and Women's Studies
 Geodesy and Geomatics Engineering
