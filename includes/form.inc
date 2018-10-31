@@ -11,7 +11,7 @@
  * @param object $form
  *      The form that will have the controls added to iterator_apply.
  */
-function _unbscholar_islandora_form_operations_alter_electronic_theses_filters(&$form) {
+function _unbscholar_islandora_form_operations_alter_electronic_theses_filters(&$form, $form_state) {
   form_load_include($form_state, 'inc', 'unbscholar_islandora_form_operations', 'includes/solr');
   $query_string = 'RELS_EXT_hasModel_uri_ms:"info:fedora/ir:thesisCModel" AND mods_genre_s:"Thesis / Dissertation"';
 
@@ -27,7 +27,7 @@ function _unbscholar_islandora_form_operations_alter_electronic_theses_filters(&
  * @param object $form
  *      The form that will have the controls added to iterator_apply.
  */
-function _unbscholar_islandora_form_operations_alter_faculty_works_filters(&$form) {
+function _unbscholar_islandora_form_operations_alter_faculty_works_filters(&$form, $form_state) {
   form_load_include($form_state, 'inc', 'unbscholar_islandora_form_operations', 'includes/solr');
   $query_string = 'RELS_EXT_hasModel_uri_ms:"info:fedora/ir:citationCModel"';
 
@@ -43,7 +43,7 @@ function _unbscholar_islandora_form_operations_alter_faculty_works_filters(&$for
  * @param object $form
  *      The form that will have the controls added to iterator_apply.
  */
-function _unbscholar_islandora_form_operations_alter_senior_reports_filters(&$form) {
+function _unbscholar_islandora_form_operations_alter_senior_reports_filters(&$form, $form_state) {
   form_load_include($form_state, 'inc', 'unbscholar_islandora_form_operations', 'includes/solr');
   $query_string = 'mods_genre_s:"Senior Report"';
 
@@ -58,7 +58,7 @@ function _unbscholar_islandora_form_operations_alter_senior_reports_filters(&$fo
  * @param object $form
  *      The form that will have the controls added to iterator_apply.
  */
-function _unbscholar_islandora_form_operations_alter_cri_filters(&$form) {
+function _unbscholar_islandora_form_operations_alter_cri_filters(&$form, $form_state) {
   form_load_include($form_state, 'inc', 'unbscholar_islandora_form_operations', 'includes/solr');
   $query_string = 'mods_extension_unbfacetInfo_unbGroupName_t:"Canadian Rivers Institute (CRI)"';
 
@@ -74,7 +74,7 @@ function _unbscholar_islandora_form_operations_alter_cri_filters(&$form) {
  * @param object $form
  *      The form that will have the controls added to iterator_apply.
  */
-function _unbscholar_islandora_form_operations_alter_l2ric_filters(&$form) {
+function _unbscholar_islandora_form_operations_alter_l2ric_filters(&$form, $form_state) {
   form_load_include($form_state, 'inc', 'unbscholar_islandora_form_operations', 'includes/solr');
   $query_string = 'mods_extension_unbfacetInfo_unbGroupName_t:"Second Language Research Institute of Canada"';
 
@@ -88,7 +88,7 @@ function _unbscholar_islandora_form_operations_alter_l2ric_filters(&$form) {
  * @param object $form
  *      The form that will have the controls added to iterator_apply.
  */
-function _unbscholar_islandora_form_operations_alter_exam_filters(&$form) {
+function _unbscholar_islandora_form_operations_alter_exam_filters(&$form, $form_state) {
   form_load_include($form_state, 'inc', 'unbscholar_islandora_form_operations', 'includes/solr');
   $query_string = 'mods_genre_s:"exam"';
   _unbscholar_islandora_form_operations_replace_field_with_unique_solr_results($form, 'mods_extension_unbfacetInfo_unbDepartmentName', $query_string);

@@ -34,27 +34,27 @@ function unbscholar_islandora_form_operations_form_alter(&$form, &$form_state, $
     // Faculty works view.
     if ($form['#id'] == 'views-exposed-form-faculty-works-page') {
       form_load_include($form_state, 'inc', 'unbscholar_islandora_form_operations', 'includes/form');
-      _unbscholar_islandora_form_operations_alter_faculty_works_filters($form);
+      _unbscholar_islandora_form_operations_alter_faculty_works_filters($form, $form_state);
     }
     if ($form['#id'] == 'views-exposed-form-electronic-theses-view-page') {
       form_load_include($form_state, 'inc', 'unbscholar_islandora_form_operations', 'includes/form');
-      _unbscholar_islandora_form_operations_alter_electronic_theses_filters($form);
+      _unbscholar_islandora_form_operations_alter_electronic_theses_filters($form), $form_state;
     }
     if ($form['#id'] == 'views-exposed-form-senior-reports-page') {
       form_load_include($form_state, 'inc', 'unbscholar_islandora_form_operations', 'includes/form');
-      _unbscholar_islandora_form_operations_alter_senior_reports_filters($form);
+      _unbscholar_islandora_form_operations_alter_senior_reports_filters($form, $form_state);
     }
     if ($form['#id'] == 'views-exposed-form-canadian-rivers-institute-page') {
       form_load_include($form_state, 'inc', 'unbscholar_islandora_form_operations', 'includes/form');
-      _unbscholar_islandora_form_operations_alter_cri_filters($form);
+      _unbscholar_islandora_form_operations_alter_cri_filters($form, $form_state);
     }
     if ($form['#id'] == 'views-exposed-form-second-language-research-institute-page') {
       form_load_include($form_state, 'inc', 'unbscholar_islandora_form_operations', 'includes/form');
-      _unbscholar_islandora_form_operations_alter_l2ric_filters($form);
+      _unbscholar_islandora_form_operations_alter_l2ric_filters($form, $form_state);
     }
     if ($form['#id'] == 'views-exposed-form-exams-page') {
       form_load_include($form_state, 'inc', 'unbscholar_islandora_form_operations', 'includes/form');
-      _unbscholar_islandora_form_operations_alter_exam_filters($form);
+      _unbscholar_islandora_form_operations_alter_exam_filters($form, $form_state);
     }
   }
 }
