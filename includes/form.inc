@@ -83,6 +83,20 @@ function _unbscholar_islandora_form_operations_alter_l2ric_filters(&$form) {
 }
 
 /**
+ * Alter Exam bank view filters to use dropdowns populated by solr.
+ *
+ * @param object $form
+ *      The form that will have the controls added to iterator_apply.
+ */
+function _unbscholar_islandora_form_operations_alter_exam_filters(&$form) {
+  form_load_include($form_state, 'inc', 'unbscholar_islandora_form_operations', 'includes/solr');
+  $query_string = 'mods_genre_s:"exam"';
+  _unbscholar_islandora_form_operations_replace_field_with_unique_solr_results($form, 'mods_extension_unbfacetInfo_unbDepartmentName', $query_string);
+  _unbscholar_islandora_form_operations_replace_field_with_unique_solr_results($form, 'mods_extension_unbfacetInfo_unbInstitutionName', $query_string);
+  _unbscholar_islandora_form_operations_alter_filters_add_reset($form);
+}
+
+/**
  * Alter view filters form to add a reset button.
  *
  * @param object $form

@@ -6,7 +6,6 @@ Book Part
 Case Study
 Conference Proceeding
 Essay
-Exam
 Honours Thesis
 Interview
 Nursing Synthesis Paper
