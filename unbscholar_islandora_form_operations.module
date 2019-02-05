@@ -38,7 +38,7 @@ function unbscholar_islandora_form_operations_form_alter(&$form, &$form_state, $
     }
     if ($form['#id'] == 'views-exposed-form-electronic-theses-view-page') {
       form_load_include($form_state, 'inc', 'unbscholar_islandora_form_operations', 'includes/form');
-      _unbscholar_islandora_form_operations_alter_electronic_theses_filters($form), $form_state;
+      _unbscholar_islandora_form_operations_alter_electronic_theses_filters($form, $form_state);
     }
     if ($form['#id'] == 'views-exposed-form-senior-reports-page') {
       form_load_include($form_state, 'inc', 'unbscholar_islandora_form_operations', 'includes/form');
