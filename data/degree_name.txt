@@ -22,6 +22,7 @@ MPHIL
 MSc
 MSc (Exercise & Sport Science)
 MScE
+MScEM
 MScF
 MScFE
 PhD
